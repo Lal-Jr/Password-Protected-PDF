@@ -13,3 +13,9 @@ def secure_pdf(file, password):
         parser.write(f)
         f.close()
     print(f"encrypted_{file} Created...")
+
+if __name__ == "main":
+    file = "test.pdf"
+    password = "IamGreat"
+    secure_pdf(file, password)
+    
