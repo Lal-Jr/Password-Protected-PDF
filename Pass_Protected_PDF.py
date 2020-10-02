@@ -14,7 +14,7 @@ def encrpyt(inputfile, outputfile, password):
     print(f"encrypted_{outputfile} Created...")
 
 if __name__ == "main":
-    inputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test'
-    outputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test_encrypted'
+    inputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test.pdf'
+    outputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test_encrypted.pdf'
     password = "laljr"
     encrpyt(inputfile,outputfile, password)   
