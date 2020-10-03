@@ -1,20 +1,21 @@
 from PyPDF2 import PdfFileWriter, PdfFileReader
 
-def encrpyt(inputfile, outputfile, password):
+def secure_pdf(inputFile, password):
     writer = PdfFileWriter()
-    reader = PdfFileReader(inputfile)
-
-    for page in range(reader.getnumPages()):
+    reader = PdfFileReader(inputFile)
+    for page in range(reader.numPages):
         writer.addPage(reader.getPage(page))
-    
-    writer.encrypt(user_pwd=password, use_128bit=True )
-    with open(f"encrypted_{outputfile}", "wb") as pdf:
-        writer.write(pdf)
-        f.close()
-    print(f"encrypted_{outputfile} Created...")
+    writer.encrypt(password)
 
-if __name__ == "main":
-    inputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test.pdf'
-    outputfile = 'C:/Users/HAREESH/Documents/GitHub/Password-Protected-PDF/test_encrypted.pdf'
+    # writer.encrypt(user_pwd=password, use_128bit=True )
+
+    with open(f"encrypted_{inputFile}", "wb") as f:
+        writer.write(f)
+        f.close()
+    print(f"encrypted_{inputFile} Created...")
+
+
+if __name__ == "__main__":
+    inputF = 'test.pdf'
     password = "laljr"
-    encrpyt(inputfile,outputfile, password)   
+    secure_pdf(inputF, password)
